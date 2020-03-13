@@ -1,5 +1,5 @@
 # About
-This is repo that i practice from [exploring-elasticsearch-with-docker](https://markheath.net/post/exploring-elasticsearch-with-docker). This repo help u learn how to start and upgrade a new version for elastics.
+This is repo that i practice from [exploring-elasticsearch-with-docker](https://markheath.net/post/exploring-elasticsearch-with-docker). This repo help u learn how to start and upgrade a new version for elastic.
 
 In this tutorial we saw that not only is it really easy to get an instance of Elasticsearch running with Docker that we could use for experimenting with the API, but with Docker Compose we can define collections of containers that can communicate with one another and start them all easily with docker-compose up.
 
