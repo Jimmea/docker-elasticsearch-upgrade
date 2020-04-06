@@ -280,13 +280,13 @@ If you click on the 5601 link, you'll be taken to an instance of Kibana. The fir
 And then if you visit the discover tab, you'll see we can use Kibana to search the documents in our index:
 ![Tux, the Linux mascot](imgs/exploring-elasticsearch-with-docker-3.png)
 
-##Try out Elasticsearch head plugin
+## Try out Elasticsearch head plugin
 You can also visit localhost:9100 (or in Play with Docker, click the 9100 link) to use the Elasticsearch head plugin. This gives you a visualization of the cluster health.
 ![Tux, the Linux mascot](imgs/exploring-elasticsearch-with-docker-4.png)
 
 Note that if you are using Play with Docker, you'll need to copy the port 9200 link and paste it into the Connect textbox to connect the head plugin to your Elasticsearch cluster.
 
-##Clean up
+## Clean up
 
 To stop and delete all the containers:
 
