@@ -1,5 +1,33 @@
 version: '2.2'
 services:
+
+  # Nginx proxy kibana
+  nginx:
+    image: quay.io/dtan4/nginx-basic-auth-proxy:latest
+    ports:
+      - 8080:80
+      - 8090:8090
+    environment:
+      - BASIC_AUTH_USERNAME
+      - BASIC_AUTH_PASSWORD
+      - PROXY_PASS=http://kibana:5601/
+    networks:
+      - esnet
+
+  # Nginx proxy elasticHQ
+  nginx2:
+    image: quay.io/dtan4/nginx-basic-auth-proxy:latest
+    ports:
+      - 8081:80
+      - 8091:8090
+    environment:
+      - BASIC_AUTH_USERNAME
+      - BASIC_AUTH_PASSWORD
+      - PROXY_PASS=http://elasticsearchHq:5000/
+    networks:
+      - esnet
+
+  # Elasticsearch
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.8.8
     container_name: elasticsearch
@@ -14,6 +42,9 @@ services:
       memlock:
         soft: -1
         hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
     volumes:
       - esdata1:/usr/share/elasticsearch/data
     ports:
@@ -21,6 +52,7 @@ services:
     networks:
       - esnet
 
+  # Elasticsearch2
   elasticsearch2:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.8.8
     container_name: elasticsearch2
@@ -36,11 +68,15 @@ services:
       memlock:
         soft: -1
         hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
     volumes:
       - esdata2:/usr/share/elasticsearch/data
     networks:
       - esnet
 
+  # Elasticsearch3
   elasticsearch3:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.8.8
     container_name: elasticsearch3
@@ -56,11 +92,15 @@ services:
       memlock:
         soft: -1
         hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
     volumes:
       - esdata3:/usr/share/elasticsearch/data
     networks:
       - esnet
 
+  # Kibana
   kibana:
     image: 'docker.elastic.co/kibana/kibana:6.8.8'
     container_name: kibana
@@ -72,6 +112,16 @@ services:
     networks:
       - esnet
 
+  # Elasticsearch HQ
+  elasticsearchHq:
+    image: elastichq/elasticsearch-hq
+    container_name: elasticsearchHq
+    ports:
+      - ${ES_HQ}:5000
+    networks:
+      - esnet
+
+  # headPlugin
   headPlugin:
     image: 'mobz/elasticsearch-head:5'
     container_name: head

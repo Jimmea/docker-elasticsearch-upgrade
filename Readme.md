@@ -7,7 +7,7 @@ In this tutorial we saw that not only is it really easy to get an instance of El
 # Content 
 - Start a new container running Elasticsearch
 - Use Docker Compose to create an Elasticsearch cluster
-- Upgrade the cluster to 6.4.2
+- Upgrade the cluster to 6.4.1 -> 6.8.8
 - Upgrade to a three node cluster
 - Add Kibana and head plugin
 

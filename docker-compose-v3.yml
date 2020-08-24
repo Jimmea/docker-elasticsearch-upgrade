@@ -59,14 +59,7 @@ volumes:
   esdata2:
     driver: local
   esdata3:
-<<<<<<< HEAD
     driver: local
 
 networks:
   esnet:
-=======
-    driver: local
-
-networks:
-  esnet:
->>>>>>> 66fbfd259b3886925145bdb9bafa0190f4ada499
