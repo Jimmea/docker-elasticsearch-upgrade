@@ -1,4 +1,4 @@
-version: '2.2'
+version: '3'
 services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.4.2
@@ -59,7 +59,14 @@ volumes:
   esdata2:
     driver: local
   esdata3:
+<<<<<<< HEAD
     driver: local
 
 networks:
   esnet:
+=======
+    driver: local
+
+networks:
+  esnet:
+>>>>>>> 66fbfd259b3886925145bdb9bafa0190f4ada499
