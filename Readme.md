@@ -90,7 +90,7 @@ docker-compose -f docker-compose-v1.yml up -d
 ## Check cluster health
 We've exposed port 9200 on one of those containers, allowing us to query the cluster health with the following request:
 ```
-curl http://localhost:9200/_cluster/health?pretty
+ curl http://localhost:9200/_cluster/health\?pretty
 ```
 
 #### Create an index
@@ -109,7 +109,7 @@ curl -X PUT "localhost:9200/customer/_doc/1?pretty" \
 #### View documents in the index
 There are lots of ways to query elasticsearch indexes and I recommend you check out the [Elasticsearch 6.4 Getting Started Guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started.html) for more details. However, we can easily retrieve the documents in our existing customer index with:
 ```
-url "localhost:9200/customer/_search?pretty"
+curl "localhost:9200/customer/_search?pretty"
 ```
 
 ##Upgrade the cluster to 6.4.2
@@ -133,7 +133,7 @@ Now if we run `docker ps` again we'll see new container ids and new image versio
 ## Check our index is still present
 To ensure that our index is still present we can search again and check our document is still present.
 ```
-curl localhost:9200/customer/_search?pretty
+curl "localhost:9200/customer/_search?pretty"
 ```
 
 Let's add another document into the index with:
@@ -159,9 +159,10 @@ docker-compose -f docker-compose-v3.yml up -d
 
 The change of environment variable means that we will recreate both `elasticsearch` and `elasticsearch2`, and of course the new `elasticsearch3` container and its volume will get created.
 
+
 We should check the cluster status and if all went well, we'll see a cluster size of three:
 ```
-We should check the cluster status and if all went well, we'll see a cluster size of three:
+curl http://localhost:9200/_cluster/health?pretty
 ```
 
 Let's check our data is still intact by retrieving a document by id from our index
@@ -266,6 +267,14 @@ volumes:
 
 networks:
   esnet:
+```
+You can download my YAML file with
+```
+curl https://gist.githubusercontent.com/markheath/f246ec3aa5a3e7493991904e241a416a/raw/a2685d1bf0414acbc684572d00cd7c7c531d0496/docker-compose-v4.yml > docker-compose-v4.yml
+```
+And now we can update our cluster again with
+```
+docker-compose -f docker-compose-v4.yml up -d
 ```
 
 ## Try out Kibana
