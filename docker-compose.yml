@@ -122,15 +122,6 @@ services:
     networks:
       - esnet-1
 
-  #headPlugin
-  headPlugin:
-    image: 'mobz/elasticsearch-head:5'
-    container_name: head
-    ports:
-      - '9100:9100'
-    networks:
-      - esnet-1
-
 volumes:
   esdata1:
     driver: local
