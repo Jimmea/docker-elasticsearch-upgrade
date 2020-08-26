@@ -31,7 +31,7 @@ services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.8.8
     environment:
-      - cluster.name=docker-cluster-elk
+      - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
       - http.cors.enabled=true
@@ -56,7 +56,7 @@ services:
   elasticsearch2:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.8.8
     environment:
-      - cluster.name=docker-cluster-elk
+      - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
       - "discovery.zen.ping.unicast.hosts=elasticsearch"
@@ -79,7 +79,7 @@ services:
   elasticsearch3:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.8.8
     environment:
-      - cluster.name=docker-cluster-elk
+      - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
       - "discovery.zen.ping.unicast.hosts=elasticsearch"
