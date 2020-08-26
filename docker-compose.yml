@@ -15,17 +15,17 @@ services:
       - esnet-1
 
   # Nginx proxy elasticHQ
-#  nginx2:
-#    image: quay.io/dtan4/nginx-basic-auth-proxy:latest
-#    ports:
-#      - 8081:80
-#      - 8091:8090
-#    environment:
-#      - BASIC_AUTH_USERNAME
-#      - BASIC_AUTH_PASSWORD
-#      - PROXY_PASS=http://elasticsearchHq:5000/
-#    networks:
-#      - esnet
+  nginx2:
+    image: quay.io/dtan4/nginx-basic-auth-proxy:latest
+    ports:
+      - 8081:80
+      - 8091:8090
+    environment:
+      - BASIC_AUTH_USERNAME
+      - BASIC_AUTH_PASSWORD
+      - PROXY_PASS=http://elasticsearchHq:5000/
+    networks:
+      - esnet
 
   # Elasticsearch
   elasticsearch:
@@ -34,7 +34,7 @@ services:
     environment:
       - cluster.name=docker-cluster-elk
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
       - http.cors.enabled=true
       - http.cors.allow-origin=*
       - discovery.zen.minimum_master_nodes=2
@@ -60,7 +60,7 @@ services:
     environment:
       - cluster.name=docker-cluster-elk
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
       - "discovery.zen.ping.unicast.hosts=elasticsearch"
       - http.cors.enabled=true
       - http.cors.allow-origin=*
@@ -84,7 +84,7 @@ services:
     environment:
       - cluster.name=docker-cluster-elk
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
       - "discovery.zen.ping.unicast.hosts=elasticsearch"
       - http.cors.enabled=true
       - http.cors.allow-origin=*
