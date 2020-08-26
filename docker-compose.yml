@@ -25,7 +25,7 @@ services:
       - BASIC_AUTH_PASSWORD
       - PROXY_PASS=http://elasticsearchHq:5000/
     networks:
-      - esnet
+      - esnet-1
 
   # Elasticsearch
   elasticsearch:
