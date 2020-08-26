@@ -2,9 +2,9 @@ version: '2.2'
 services:
 
   # Nginx proxy kibana
-  nginx_auth_kibana:
+  nginxAuthKibana:
     image: quay.io/dtan4/nginx-basic-auth-proxy:latest
-    container_name: nginx_auth_kibana
+    container_name: nginxAuthKibana
     ports:
       - 8080:80
       - 8090:8090
@@ -16,9 +16,9 @@ services:
       - esnet-1
 
   # Nginx proxy elasticHQ
-  nginx_auth_es_hq:
+  nginxAuthEsHq:
     image: quay.io/dtan4/nginx-basic-auth-proxy:latest
-    container_name: nginx_auth_es_hq
+    container_name: nginxAuthEsHq
     ports:
       - 8081:80
       - 8091:8090
@@ -58,7 +58,7 @@ services:
   # Elasticsearch2
   elasticsearch2:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.8.8
-    container_name: elasticsearch_2
+    container_name: elasticsearch2
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
@@ -82,7 +82,7 @@ services:
   # Elasticsearch3
   elasticsearch3:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.8.8
-    container_name: elasticsearch_3
+    container_name: elasticsearch3
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
@@ -118,7 +118,7 @@ services:
   # Elasticsearch HQ
   elasticsearchHq:
     image: elastichq/elasticsearch-hq
-    container_name: es_hq
+    container_name: elasticsearchHq
     ports:
       - ${ES_HQ}:5000
     networks:
