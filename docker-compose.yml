@@ -34,7 +34,7 @@ services:
     environment:
       - cluster.name=docker-cluster-elk
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms1.5g -Xmx1.5g"
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
       - http.cors.enabled=true
       - http.cors.allow-origin=*
       - discovery.zen.minimum_master_nodes=2
@@ -60,7 +60,7 @@ services:
     environment:
       - cluster.name=docker-cluster-elk
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms1.5g -Xmx1.5g"
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
       - "discovery.zen.ping.unicast.hosts=elasticsearch"
       - http.cors.enabled=true
       - http.cors.allow-origin=*
@@ -84,7 +84,7 @@ services:
     environment:
       - cluster.name=docker-cluster-elk
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms1.5g -Xmx1.5g"
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
       - "discovery.zen.ping.unicast.hosts=elasticsearch"
       - http.cors.enabled=true
       - http.cors.allow-origin=*
